@@ -14,7 +14,7 @@ public class FacultyServiceImpl implements FacultyService {
 	private FacultyRepository facultyRepository;
 	
 	@Autowired
-	public FacultyServiceImpl (FacultyRepository theFacultyRespository) {
+	public FacultyServiceImpl (FacultyRepository theFacultyRepository) {
 		facultyRepository = theFacultyRepository;
 		
 	}
@@ -22,7 +22,7 @@ public class FacultyServiceImpl implements FacultyService {
 	@Override
 	public List<Faculty> findAll() {
 		// TODO Auto-generated method stub
-		return null;
+		return facultyRepository.findAllByOrderByLastNameAsc();
 	}
 
 	@Override
