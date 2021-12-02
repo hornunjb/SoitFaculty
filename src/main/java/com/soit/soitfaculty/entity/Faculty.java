@@ -1,5 +1,7 @@
 package com.soit.soitfaculty.entity;
 
+import java.beans.Transient;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -31,25 +33,30 @@ public class Faculty {
 	@Column(name="email")
 	private String email;
 	
+    @Column(nullable = true, length = 64)
+    private String photos;
+	
 	//Set constructors
 	public Faculty() {
 		
 	}
 
-	public Faculty(int id, String firstName, String lastName, String title, String email) {
+	public Faculty(int id, String firstName, String lastName, String title, String email, String photos) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.title = title;
 		this.email = email;
+		this.photos = photos;
 	}
 
-	public Faculty(int id, String firstName, String lastName, String email) {
+	public Faculty(int id, String firstName, String lastName, String email, String photos) {
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
+		this.photos = photos;
 	}
 	
 	//Set the getters and setters
@@ -93,6 +100,21 @@ public class Faculty {
 	public void setTitle(String title) {
 		this.title = title;
 	}
+	
+	public void setPhotos(String photos) {
+		this.photos = photos;
+	}
+	
+	public String getPhotos(String photos) {
+		return photos;
+	}
+	
+    @Transient
+    public String getPhotosImagePath() {
+        if (photos == null) return null;
+         
+        return "/faculty-photos/" + id + "/" + photos;
+    }
 
 	@Override
 	public String toString() {
