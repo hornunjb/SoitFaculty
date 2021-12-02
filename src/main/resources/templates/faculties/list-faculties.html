@@ -11,16 +11,16 @@
 	rel="stylesheet"
 	integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF"
 	crossorigin="anonymous">
-<title>Insert title here</title>
+<title>FWF</title>
 </head>
 <body>
 	<div class="container">
-		<h4>School of IT Faculty Directory</h4>
+		<h4>Fhotos With Friends</h4>
 		<hr>
 
 		<!-- create a button to add a new faculty -->
 		<a th:href="@{/Faculties/viewAddForm}"
-			class="btn btn-dark btn-sm mb-2">Add New Faculty</a>
+			class="btn btn-dark btn-sm mb-2">New Post</a>
 
 		<table class="table table-bordered table-dark">
 			<thead>
@@ -39,9 +39,10 @@
 					<td th:text="${theFaculty.lastName}">
 					<td th:text="${theFaculty.Title}">
 					<td th:text="${theFaculty.email}">
-					<td><a th:href="${theFaculty.photosImagePath}">View Photo</a></td>
-					
-						<!-- update button -->
+					<td><img th:src="@{${theFaculty.photosImagePath}}" width="50%"
+						height="50%" /></td>
+
+					<!-- update button -->
 					<td><a
 						th:href="@{/Faculties/viewUpdateForm(facultyId=${theFaculty.id})}"
 						class="btn btn-light btn-sm">Update</a> <a
