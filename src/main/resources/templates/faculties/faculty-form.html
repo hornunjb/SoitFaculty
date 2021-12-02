@@ -11,35 +11,36 @@
 	rel="stylesheet"
 	integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF"
 	crossorigin="anonymous">
-<title>Insert title here</title>
+<title>FWF</title>
 </head>
 
 <body>
 
 	<div class="container">
+		<br><br>
 
-		<h4>School of IT Faculty Directory</h4>
+		<h4>Fhotos With Friends</h4>
+		<br><br>
 
 		<a class="btn btn-primary" data-bs-toggle="collapse"
-			th:href="@{/Faculties/list}" role="button" aria-expanded="false"
-			aria-controls="collapseExample"> List of Faculties</a>
-
-		<p class="h4 mb-4">Register Faculty</p>
-
-		<form action="#" th:action="@{/Faculties/save}" th:object="${faculty}"
+			th:href="@{/posts/list}" role="button" aria-expanded="false"
+			aria-controls="collapseExample">View Posts</a>
+<br><br>
+		<p class="h4 mb-4">Create Post</p>
+<br><br>
+		<form action="#" th:action="@{/posts/save}" th:object="${faculty}"
 			method="POST" enctype="multipart/form-data">
 
 			<!-- invisible form as needed to update info -->
 			<input type="hidden" th:field="*{id}" /> <input type="text"
 				th:field="*{firstName}" class="form-control mb-4 col"
-				placeholder="First Name"> <input type="text"
+				placeholder="Name"> <input type="text"
 				th:field="*{lastName}" class="form-control mb-4 col"
-				placeholder="Last Name"> <input type="text"
+				placeholder="Title"> <input type="text"
 				th:field="*{Title}" class="form-control mb-4 col"
-				placeholder="Title"> <input type="text" th:field="*{email}"
-				class="form-control mb-4 col" placeholder="Email"> <input
+				placeholder="Description"> <input
 				type="file" name="image" accept="image/png, image/jpeg" />
-			<button type="submit" class="btn btn-danger col-2">Register</button>
+			<button type="submit" class="btn btn-primary col-2">Post</button>
 
 		</form>
 

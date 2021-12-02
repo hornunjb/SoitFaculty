@@ -18,7 +18,7 @@ import com.soit.soitfaculty.entity.Faculty;
 import com.soit.soitfaculty.service.FacultyService;
 
 @Controller
-@RequestMapping("/Faculties")
+@RequestMapping("/posts")
 public class FacultyController {
 
 	public FacultyService facultyService;
@@ -78,7 +78,7 @@ public class FacultyController {
 		FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
 
 		// block duplicate submission for accidental page refreshed
-		return "redirect:/Faculties/list";
+		return "redirect:/posts/list";
 	}
 
 	@GetMapping("/delete")
@@ -88,7 +88,7 @@ public class FacultyController {
 		facultyService.deleteById(theId);
 
 		// return to the faculty's directory
-		return "redirect:/Faculties/list";
+		return "redirect:/posts/list";
 	}
 	
 }
